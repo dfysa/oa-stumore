@@ -14,7 +14,7 @@ public enum BusinessExceptionEnum {
 
     REQUEST_PARAMS_IS_NOT_EMPTY("请求参数不能为空"),
     USER_IS_NOT_EXIST("用户不存在"),
-    PASSWORD_IS_WRONG("密码错误");
+    PASSWORD_IS_WRONG("密码错误"), TOKEN_IS_ERROR("token错误"), TOKEN_IS_EMPTY("token为空");
 
     private final String desc;
 

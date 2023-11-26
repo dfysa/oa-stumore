@@ -32,6 +32,7 @@ public class SysNode {
     private Integer nodeCode;
 
     private Long parentId;
+    private String icon;
 
 
 }
