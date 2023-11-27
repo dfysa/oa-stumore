@@ -5,16 +5,16 @@ import org.apache.ibatis.annotations.Mapper;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import top.fyl.oastumore.entity.AdmDepartment;
-import top.fyl.oastumore.entity.AdmEmployee;
+import top.fyl.oastumore.entity.SysNode;
+import top.fyl.oastumore.entity.SysNotice;
 
 /**
  * @author dfysa
- * @data 25/11/2023 下午7:46
+ * @data 25/11/2023 下午6:21
  * @description
  */
 @Mapper
-public interface AdmDepartmentMapper extends BaseMapper<AdmDepartment> {
+public interface SysNoticeMapper extends BaseMapper<SysNotice> {
     @SpringBootApplication
     @MapperScan("top.fyl.oastumore.mapper")
     public class OaApplication{

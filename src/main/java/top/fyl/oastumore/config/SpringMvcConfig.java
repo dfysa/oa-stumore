@@ -35,8 +35,6 @@ public class SpringMvcConfig  implements WebMvcConfigurer {
         source.registerCorsConfiguration("/**", config);
 
         return new CorsFilter(source);
-
-
     }
 
     @Override

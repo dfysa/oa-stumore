@@ -18,7 +18,7 @@ public interface AdmEmployeeMapper extends BaseMapper<AdmEmployee> {
     @MapperScan("top.fyl.oastumore.mapper")
     public class OaApplication{
         public static void main(String[] args) {
-            SpringApplication.run(SysNodeMapper.OaApplication.class,args);
+            SpringApplication.run(OaApplication.class,args);
         }
     }
 }

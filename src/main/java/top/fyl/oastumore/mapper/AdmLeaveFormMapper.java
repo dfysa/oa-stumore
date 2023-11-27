@@ -5,21 +5,22 @@ import org.apache.ibatis.annotations.Mapper;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import top.fyl.oastumore.entity.AdmDepartment;
 import top.fyl.oastumore.entity.AdmEmployee;
+import top.fyl.oastumore.entity.AdmLeaveForm;
 
 /**
  * @author dfysa
- * @data 25/11/2023 下午7:46
+ * @data 26/11/2023 下午6:48
  * @description
  */
 @Mapper
-public interface AdmDepartmentMapper extends BaseMapper<AdmDepartment> {
+public interface AdmLeaveFormMapper extends BaseMapper<AdmLeaveForm> {
     @SpringBootApplication
     @MapperScan("top.fyl.oastumore.mapper")
-    public class OaApplication{
+    public class OaApplication {
         public static void main(String[] args) {
-            SpringApplication.run(OaApplication.class,args);
+            SpringApplication.run(OaApplication.class, args);
         }
     }
+
 }
