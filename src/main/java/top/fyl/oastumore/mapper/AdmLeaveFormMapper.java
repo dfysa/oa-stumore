@@ -2,11 +2,15 @@ package top.fyl.oastumore.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import top.fyl.oastumore.entity.AdmEmployee;
 import top.fyl.oastumore.entity.AdmLeaveForm;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author dfysa
@@ -15,12 +19,8 @@ import top.fyl.oastumore.entity.AdmLeaveForm;
  */
 @Mapper
 public interface AdmLeaveFormMapper extends BaseMapper<AdmLeaveForm> {
-    @SpringBootApplication
-    @MapperScan("top.fyl.oastumore.mapper")
-    public class OaApplication {
-        public static void main(String[] args) {
-            SpringApplication.run(OaApplication.class, args);
-        }
-    }
+
+    List<Map<String,Object>> selectByParams(@Param("state")String state,@Param("operatorId") Long operatorId);
+
 
 }

@@ -20,6 +20,8 @@ import top.fyl.oastumore.util.DateUtil;
 
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 import static top.fyl.oastumore.common.Constant.*;
 
@@ -209,6 +211,18 @@ public class LeaveServiceImpl implements ILeaveService {
 
     }
 
-
-
+    /**
+     * 查询请假列表
+     *
+     * @param state  状态
+     * @param userId ID
+     * @return {@link List}<{@link Map}<{@link String}, {@link Object}>>
+     */
+    @Override
+    public List<Map<String, Object>> selectList(String state, Long userId) {
+        SysUser sysUser = userMapper.selectById(userId);
+        return leaveFormMapper.selectByParams(state, sysUser.getEmployeeId());
     }
+
+
+}

@@ -19,6 +19,14 @@ public class LeaveController {
     @Resource
     private ILeaveService leaveService;
 
+
+    @GetMapping("/list")
+    public CommonResp<Object> leaveList(@RequestParam(value = "state", required = false, defaultValue = "process") String state,
+                                        @RequestHeader("token") String token) {
+        JSONObject jsonObject = JwtUtil.getJSONObject(token);
+        Long id = jsonObject.getLong("id");
+        return CommonResp.success(leaveService.selectList(state, id));
+    }
     @PostMapping("/submit")
     public CommonResp<Object> submitLeaveForm(@RequestBody LeaveDTO leaveDTO,
                                               @RequestHeader("token") String token){
@@ -27,4 +35,7 @@ public class LeaveController {
         return CommonResp.success();
 
     }
+
+
+
 }

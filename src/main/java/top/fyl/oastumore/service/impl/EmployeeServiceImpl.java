@@ -34,4 +34,13 @@ public class EmployeeServiceImpl implements IEmployeeService {
             wrapper.eq( AdmEmployee :: getLevel,Constant.DEPARTMENT_MANAGER_LEVEL)
                     .eq( AdmEmployee::getDepartmentId,employee.getDepartmentId());
             return employeeMapper.selectOne(wrapper);
-        }}}
+        }}
+
+    /**
+     * @author dfysa
+     * @data 27/11/2023 下午5:16
+     * @description
+     */
+    public static class NoticeServiceImpl {
+    }
+}

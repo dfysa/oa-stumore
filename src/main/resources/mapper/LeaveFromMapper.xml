@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="top.fyl.oastumore.mapper.AdmLeaveFormMapper">
+<!--    这一段SQL的意思就是查询流程表中 action是audit审批 且 操作人是当前登录用户 并且state满足条件的数据。-->
+
+    <select id="selectByParams" resultType="java.util.LinkedHashMap" parameterType="java.util.Map">
+        SELECT lf.*, e.name,d. department_name
+        FROM adm_leave_form lf,adm_process_flow pf, adm_employee  e, adm_department d
+        WHERE lf.form_id = pf.form_id
+        AND lf.employee_id= e.employee_id
+        AND e.department_id= d.department_id
+        AND pf.action= 'audit'
+        <if test="state!=null">
+            AND pf.state=#{state}
+        </if>
+        <if test="operatorId !=null">
+            AND  pf.operator_id= #{operatorId}
+        </if>
+    </select>
+
+</mapper>
