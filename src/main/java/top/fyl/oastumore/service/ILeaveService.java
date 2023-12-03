@@ -1,5 +1,6 @@
 package top.fyl.oastumore.service;
 
+import top.fyl.oastumore.dto.AuditDTO;
 import top.fyl.oastumore.dto.LeaveDTO;
 
 import java.util.List;
@@ -28,4 +29,14 @@ public interface ILeaveService {
      * @return {@link List}<{@link Map}<{@link String}, {@link Object}>>
      */
     List<Map<String, Object>> selectList(String state, Long userId);
+
+    /**
+     * 审核请假
+     *
+     * @param dto    DTO
+     * @param userId 用户 ID
+     */
+    void auditLeave(AuditDTO dto, Long userId);
+
+
 }

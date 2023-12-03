@@ -31,14 +31,15 @@ class LeaveServiceImplTest {
     void submitLeave() {
         LeaveDTO dto = new LeaveDTO();
 
-        String dateTimeStr = "2023-11-27 11:44:44";
+        String dateTimeStr = "2023-12-27 11:44:44";
         LocalDateTime dateTime = LocalDateTime.parse(dateTimeStr, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 
-        String dateTime1Str = "2023-11-27 10:44:44";
+        String dateTime1Str = "2023-12-28 10:44:44";
         LocalDateTime dateTime1 = LocalDateTime.parse(dateTime1Str, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+
         dto.setFormType(1);
         dto.setStartTime(dateTime1);
-        dto.setReason("a");
+        dto.setReason("b");
         dto.setEndTime(dateTime);
         Long userId = 1L;
         System.out.println();

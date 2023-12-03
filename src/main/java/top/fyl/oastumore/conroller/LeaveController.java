@@ -4,6 +4,7 @@ import cn.hutool.json.JSONObject;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.*;
 import top.fyl.oastumore.common.CommonResp;
+import top.fyl.oastumore.dto.AuditDTO;
 import top.fyl.oastumore.dto.LeaveDTO;
 import top.fyl.oastumore.service.ILeaveService;
 import top.fyl.oastumore.util.JwtUtil;
@@ -27,13 +28,24 @@ public class LeaveController {
         Long id = jsonObject.getLong("id");
         return CommonResp.success(leaveService.selectList(state, id));
     }
+
     @PostMapping("/submit")
     public CommonResp<Object> submitLeaveForm(@RequestBody LeaveDTO leaveDTO,
                                               @RequestHeader("token") String token){
         JSONObject jsonObject= JwtUtil.getJSONObject(token);
         Long id= jsonObject.getLong("id");
+        leaveService.submitLeave(leaveDTO,id);
         return CommonResp.success();
 
+    }
+
+    @PostMapping("/audit")
+    public CommonResp<Object> auditLeave(@RequestBody AuditDTO auditDTO,
+                                         @RequestHeader("token") String token) {
+        JSONObject jsonObject = JwtUtil.getJSONObject(token);
+        Long id = jsonObject.getLong("id");
+        leaveService.auditLeave(auditDTO, id);
+        return CommonResp.success();
     }
 
 
